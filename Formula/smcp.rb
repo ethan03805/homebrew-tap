@@ -5,13 +5,13 @@
 class Smcp < Formula
   desc "Local reference monitor between AI agent harnesses and MCP servers"
   homepage "https://github.com/ethan03805/Secure-MCP-Gateway"
-  version "1.0.0-rc.2"
+  version "1.0.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0-rc.2/smcp_1.0.0-rc.2_darwin_amd64.tar.gz"
-      sha256 "ae868842124181e81edcc60edc7910b13cd9d436df4683695da08e03047220c8"
+      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0/smcp_1.0.0_darwin_amd64.tar.gz"
+      sha256 "cd484837a62a2dc62a031da7029d389c20b4d7c551e166128bee8aedc471adf7"
 
       define_method(:install) do
         bin.install "smcpd", "smcpctl"
@@ -19,8 +19,8 @@ class Smcp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0-rc.2/smcp_1.0.0-rc.2_darwin_arm64.tar.gz"
-      sha256 "1514a85a3c06542ec72302cfa0f2c0684ad9db02b57df25a509c2c8a2db1713f"
+      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0/smcp_1.0.0_darwin_arm64.tar.gz"
+      sha256 "10210368384adcefa22218cf592e96207c991f72f26d26e18bfd857da82e3518"
 
       define_method(:install) do
         bin.install "smcpd", "smcpctl"
@@ -31,16 +31,16 @@ class Smcp < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0-rc.2/smcp_1.0.0-rc.2_linux_amd64.tar.gz"
-      sha256 "77f563772b3d866c0920a0564a0db82a88fa8f26621156129785f40b100c7970"
+      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0/smcp_1.0.0_linux_amd64.tar.gz"
+      sha256 "36be153bded9ed34dddaac8bcdba1966c9d9bb43e8cfd385ec725c1c3669747a"
       define_method(:install) do
         bin.install "smcpd", "smcpctl"
         %w[smcp-refserver smcp-stdio smcp-session smcp-connect].each { |f| bin.install f if File.exist?(f) }
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0-rc.2/smcp_1.0.0-rc.2_linux_arm64.tar.gz"
-      sha256 "39e57836b21765bfd9da3d670303fdfcd770bb92a38176308ca41403113ef6e3"
+      url "https://github.com/ethan03805/Secure-MCP-Gateway/releases/download/v1.0.0/smcp_1.0.0_linux_arm64.tar.gz"
+      sha256 "eae792b0730f19694dbbe73d6cc5b412209fe14a4667d803dca612fb514eb0cf"
       define_method(:install) do
         bin.install "smcpd", "smcpctl"
         %w[smcp-refserver smcp-stdio smcp-session smcp-connect].each { |f| bin.install f if File.exist?(f) }
